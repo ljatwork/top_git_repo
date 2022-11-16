@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               buildHeader(),
               const SizedBox(
-                height: 50,
+                height: 30,
               ),
               BlocProvider(
                 create: (_) => _repoBloc,
@@ -82,8 +82,11 @@ class _HomePageState extends State<HomePage> {
         shrinkWrap: true,
         itemCount: repoItems.length,
         itemBuilder: (context, index) {
-          return RepoTileWidget(
-            model: repoItems[index],
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 25.0),
+            child: RepoTileWidget(
+              model: repoItems[index],
+            ),
           );
         });
   }
@@ -101,7 +104,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Text(
-          "Checkout the current\ntop repositories!",
+          "Checkout the recently\ncreated repositories!",
           style: TextStyle(
             fontSize: kHeader,
             fontWeight: FontWeight.bold,

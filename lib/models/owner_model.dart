@@ -8,23 +8,15 @@ part 'owner_model.g.dart';
 class OwnerModel extends BaseApiResponseModel<OwnerModel> {
   String? login;
   int? id;
+  @JsonKey(name: "node_id")
   String? nodeId;
+  @JsonKey(name: "avatar_url")
   String? avatarUrl;
+  @JsonKey(name: "gravatar_id")
   String? gravatarId;
   String? url;
+  @JsonKey(name: "html_url")
   String? htmlUrl;
-  String? followersUrl;
-  String? followingUrl;
-  String? gistsUrl;
-  String? starredUrl;
-  String? subscriptionsUrl;
-  String? organizationsUrl;
-  String? reposUrl;
-  String? eventsUrl;
-  String? receivedEventsUrl;
-  String? type;
-  bool? siteAdmin;
-
   OwnerModel(
       {this.login,
       this.id,
@@ -32,18 +24,7 @@ class OwnerModel extends BaseApiResponseModel<OwnerModel> {
       this.avatarUrl,
       this.gravatarId,
       this.url,
-      this.htmlUrl,
-      this.followersUrl,
-      this.followingUrl,
-      this.gistsUrl,
-      this.starredUrl,
-      this.subscriptionsUrl,
-      this.organizationsUrl,
-      this.reposUrl,
-      this.eventsUrl,
-      this.receivedEventsUrl,
-      this.type,
-      this.siteAdmin});
+      this.htmlUrl,});
 
   factory OwnerModel.fromJson(Map<String, dynamic> json) =>
       _$OwnerModelFromJson(json);

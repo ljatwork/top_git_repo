@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,10 +18,19 @@ class RepoTileWidget extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Row(
       children: [
-        Icon(
-          CupertinoIcons.person_alt_circle_fill,
-          size: size.width * 0.25,
-          color: Colors.blueAccent,
+        CachedNetworkImage(
+          imageUrl: model.owner?.avatarUrl ?? '',
+          width: size.width * 0.25,
+          placeholder: (context, url) => Icon(
+            CupertinoIcons.person_alt_circle_fill,
+            size: size.width * 0.25,
+            color: Colors.blueGrey,
+          ),
+          errorWidget: (context, url, error) => Icon(
+            CupertinoIcons.person_alt_circle_fill,
+            size: size.width * 0.25,
+            color: Colors.blueGrey,
+          ),
         ),
         const Spacer(),
         SizedBox(
@@ -29,14 +39,14 @@ class RepoTileWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "by ${model.name ?? ''}",
+                model.name ?? '',
                 style: const TextStyle(
                   fontSize: kSubHeader,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               Text(
-                model.owner?.login ?? '',
+                "by ${model.owner?.login ?? ''}",
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
