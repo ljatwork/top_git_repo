@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+
+import 'resources/local/dbs/app_db.dart';
 import '../pages/home_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  GetIt.I.registerSingleton<AppDatabase>(await $FloorAppDatabase.databaseBuilder('repository_app.db').build());
   runApp(const MyApp());
 }
 

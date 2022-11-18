@@ -6,24 +6,21 @@ part 'owner_model.g.dart';
 
 @JsonSerializable()
 class OwnerModel extends BaseApiResponseModel<OwnerModel> {
-  String? login;
+  String login;
   int? id;
   @JsonKey(name: "node_id")
   String? nodeId;
   @JsonKey(name: "avatar_url")
-  String? avatarUrl;
-  @JsonKey(name: "gravatar_id")
-  String? gravatarId;
-  String? url;
+  String avatarUrl;
+  String url;
   @JsonKey(name: "html_url")
   String? htmlUrl;
   OwnerModel(
-      {this.login,
+      {required this.login,
       this.id,
       this.nodeId,
-      this.avatarUrl,
-      this.gravatarId,
-      this.url,
+      required this.avatarUrl,
+      required this.url,
       this.htmlUrl,});
 
   factory OwnerModel.fromJson(Map<String, dynamic> json) =>

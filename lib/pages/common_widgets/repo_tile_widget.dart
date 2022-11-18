@@ -19,7 +19,7 @@ class RepoTileWidget extends StatelessWidget {
     return Row(
       children: [
         CachedNetworkImage(
-          imageUrl: model.owner?.avatarUrl ?? '',
+          imageUrl: model.owner.avatarUrl,
           width: size.width * 0.25,
           placeholder: (context, url) => Icon(
             CupertinoIcons.person_alt_circle_fill,
@@ -46,7 +46,7 @@ class RepoTileWidget extends StatelessWidget {
                 ),
               ),
               Text(
-                "by ${model.owner?.login ?? ''}",
+                "by ${model.owner.login}",
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(

@@ -7,57 +7,32 @@ part 'item_model.g.dart';
 
 @JsonSerializable()
 class ItemModel extends BaseApiResponseModel<ItemModel> {
-  int? id;
-  @JsonKey(name: "node_id")
-  String? nodeId;
-  String? name;
+  int id;
+  String name;
   @JsonKey(name: "full_name")
-  String? fullName;
+  String fullName;
   bool? private;
-  OwnerModel? owner;
+  OwnerModel owner;
   @JsonKey(name: "html_url")
-  String? htmlUrl;
+  String htmlUrl;
   String? description;
-  bool? fork;
-  String? url;
-  @JsonKey(name: "created_at")
-  String? createdAt;
-  @JsonKey(name: "updated_at")
-  String? updatedAt;
-  @JsonKey(name: "pushed_at")
-  String? pushedAt;
+  String url;
   @JsonKey(name: "git_url")
-  String? gitUrl;
-  @JsonKey(name: "ssh_url")
-  String? sshUrl;
-  @JsonKey(name: "clone_url")
-  String? cloneUrl;
-  @JsonKey(name: "home_page")
-  String? homepage;
-  double? score;
+  String gitUrl;
   @JsonKey(name: "stargazers_count")
-  int? stargazersCount;
+  int stargazersCount;
 
   ItemModel(
-      {this.id,
-      this.nodeId,
-      this.name,
-      this.fullName,
+      {required this.id,
+      required this.name,
+      required this.fullName,
       this.private,
-      this.owner,
-      this.htmlUrl,
+      required this.owner,
+      required this.htmlUrl,
       this.description,
-      this.fork,
-      this.url,
-      this.createdAt,
-      this.updatedAt,
-      this.pushedAt,
-      this.gitUrl,
-      this.sshUrl,
-      this.cloneUrl,
-      this.homepage,
-      this.score,
-      this.stargazersCount});
+      required this.url,
+      required this.gitUrl,
+      required this.stargazersCount});
 
   factory ItemModel.fromJson(Map<String, dynamic> json) =>
       _$ItemModelFromJson(json);

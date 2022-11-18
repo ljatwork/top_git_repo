@@ -12,9 +12,7 @@ class _ApiProvider implements ApiProvider {
   _ApiProvider(
     this._dio, {
     this.baseUrl,
-  }) {
-    baseUrl ??= 'https://api.github.com/search';
-  }
+  });
 
   final Dio _dio;
 
@@ -25,12 +23,14 @@ class _ApiProvider implements ApiProvider {
     query,
     sort,
     order,
+    page,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'q': query,
       r'sort': sort,
       r'order': order,
+      r'page': page,
     };
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
